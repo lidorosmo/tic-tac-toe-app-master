@@ -1,0 +1,17 @@
+.finish-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.play-again-p {
+  margin-top: 13vw;
+  font-size: 2vw;
+}
+
+.finish-header {
+  color: white;
+  font-family: "Bangers", cursive;
+  font-size: 5vw;
+  margin-top: 2vw;
+}

@@ -1,0 +1,98 @@
+.game-page {
+  display: grid;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75vw;
+  justify-items: center;
+  align-items: center;
+}
+
+#header-match {
+  color: #cef0d4;
+  font-family: "Rouge Script", cursive;
+  font-size: 4.3vw;
+  font-weight: normal;
+  line-height: 4vw;
+  margin: 2vw auto;
+  text-align: center;
+  text-shadow: 1px 1px 2px #082b34;
+}
+
+.player-names-display {
+  font-family: "Rouge Script", cursive;
+  font-size: 1.5vw;
+}
+
+.btn-restart {
+  display: flex;
+  gap: 1vw;
+}
+
+.board {
+  display: grid;
+  gap: 0.05vw;
+  margin: 0.05vw;
+}
+
+.tile-btn {
+  margin: 0px;
+  padding: 2vw;
+  background-color: transparent;
+  /* background-color: #203A43; */
+  border-color: #3a4464;
+  /* border: 50px; */
+  color: #cef0d4;
+  font-size: 3vw;
+}
+
+.btn-restart {
+  margin: 1.5vw;
+}
+
+.button-18 {
+  align-items: center;
+  background-color: #0a66c2;
+  border: 0;
+  border-radius: 8vw;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell,
+    "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 0.5vw;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.5vw;
+  max-width: 35vw;
+  min-height: 3.3vw;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+.button-18:hover,
+.button-18:focus {
+  background-color: #16437e;
+  color: #ffffff;
+}
+.button-18:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, 0.7);
+}
+.button-18:disabled {
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.3);
+}

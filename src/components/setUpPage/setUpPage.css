@@ -152,3 +152,11 @@ body {
   background: rgba(0, 0, 0, 0.08);
   color: rgba(0, 0, 0, 0.3);
 }
+
+/* .spin-button .ms-Button .ms-Button-flexContainer {
+  background-color: purple;
+} */
+
+.ms-Label {
+  color: #cef0d4;
+}

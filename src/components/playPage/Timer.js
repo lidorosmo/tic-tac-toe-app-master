@@ -1,46 +1,25 @@
 import React, { useState, useEffect } from "react";
 
 const Timer = () => {
-  const [seconds, setSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-
-  function toggleTimer() {
-    setIsActive(!isActive);
-  }
-
-  function reset() {
-    setSeconds(0);
-    setIsActive(false);
-  }
+  const [[mins, secs], setTime] = useState([0, 0]);
+  const tick = () => {
+    if (secs === 59) {
+      setTime([mins + 1, 0]);
+    } else {
+      setTime([mins, secs + 1]);
+    }
+  };
 
   useEffect(() => {
-    let interval = null;
-    if (isActive) {
-      interval = setInterval(() => {
-        setSeconds((seconds) => seconds + 1);
-      }, 1000);
-    } else if (!isActive && seconds !== 0) {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [isActive, seconds]);
+    const timerId = setInterval(() => tick(), 1000);
+    return () => clearInterval(timerId);
+  });
 
   return (
     <div className="timer">
-      <div className="timer-text">{seconds}sec</div>
-      <div className="row">
-        <button
-          className={`button button-primary button-primary-${
-            isActive ? "active" : "inactive"
-          }`}
-          onClick={toggleTimer}
-        >
-          {isActive ? "Pause" : "Start"}
-        </button>
-        <button className="button" onClick={reset}>
-          Reset
-        </button>
-      </div>
+      <p>
+        {mins.toString().padStart(2, "0")}:{secs.toString().padStart(2, "0")}
+      </p>
     </div>
   );
 };

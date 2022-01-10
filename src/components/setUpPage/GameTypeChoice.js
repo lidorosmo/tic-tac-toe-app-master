@@ -8,7 +8,8 @@ const GameTypeChoice = () => {
   const dispatch = useDispatch();
 
   const handleChanged = (e, value) => {
-    dispatch(gameTime(value));
+    let minSec = { minutes: Math.floor(value / 60), seconds: value % 60 };
+    dispatch(gameTime(minSec));
   };
 
   const handleClickWithTime = () => {
@@ -18,6 +19,7 @@ const GameTypeChoice = () => {
   const handleClick = () => {
     dispatch(onTime(false));
     dispatch(startNewGame());
+    console.log("clicked start game (im in handleClick)");
   };
 
   return (

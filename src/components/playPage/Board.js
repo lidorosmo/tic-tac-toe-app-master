@@ -1,9 +1,10 @@
 import React from "react";
 import Tile from "./Tile";
+import { useSelector } from "react-redux";
 
 const Board = () => {
-  const boardArr = Array(9).fill(null); //update to: boardArr = useSelector((state)=>state.boardArr)
-  const numOfRows = 3; //update later ti get from store.
+  const boardArr = useSelector((state) => state.boardArr);
+  const numOfRows = useSelector((state) => state.numOfRows);
   const mappedTiles = boardArr.map((tiles, index) => (
     <Tile index={index} value={boardArr[index]} />
   ));

@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { timesUp } from "../../redux/actions";
 
 const CountdownTimer = ({ MinSec }) => {
+  const dispatch = useDispatch();
   const { minutes = 0, seconds = 30 } = MinSec;
   const [[mins, secs], setTime] = useState([minutes, seconds]);
 
   const tick = () => {
     if (mins === 0 && secs === 0) {
-      reset();
+      dispatch(timesUp());
+      // reset();
     } else if (secs === 0) {
       setTime([mins - 1, 59]);
     } else {
@@ -14,7 +18,7 @@ const CountdownTimer = ({ MinSec }) => {
     }
   };
 
-  const reset = () => setTime([parseInt(minutes), parseInt(seconds)]);
+  // const reset = () => setTime([parseInt(minutes), parseInt(seconds)]);
 
   useEffect(() => {
     const timerId = setInterval(() => tick(), 1000);

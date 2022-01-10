@@ -19,9 +19,10 @@ const PlayersNumChoice = () => {
     <div className="players-num-choice" onChange={changeHandler}>
       <label className="players-choice-label">Choose players</label>
       <div id="playes-radios">
-        <input type="radio" value="1-Player" name="players-num" /> 1 Player
-        <input type="radio" value="2-Players" name="players-num" /> 2 Players
-        <input type="radio" value="3-Players" name="players-num" /> 3 Players
+        <input type="radio" value="1-Player" name="players-num" /> 1 player vs
+        computer
+        <input type="radio" value="2-Players" name="players-num" /> 2 players
+        <input type="radio" value="3-Players" name="players-num" /> 3 players
       </div>
     </div>
   );

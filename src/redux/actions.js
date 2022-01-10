@@ -51,6 +51,7 @@ export const gameTime = (gameTime) => {
 export const startNewGame = () => {
   return {
     type: "init/startNewGame",
+    payload: "play",
   };
 };
 
@@ -58,5 +59,17 @@ export const makeMove = (move) => {
   return {
     type: "game/makeMove",
     move,
+  };
+};
+
+export const returnToMainMenu = () => {
+  return {
+    type: "game/retMainMenu",
+  };
+};
+
+export const timesUp = () => {
+  return {
+    type: "game/timesUp",
   };
 };

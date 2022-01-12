@@ -34,6 +34,27 @@ export const player3Name = (player3Name) => {
   };
 };
 
+export const player1Char = (player1Char) => {
+  return {
+    type: "init/player1Char",
+    player1Char,
+  };
+};
+
+export const player2Char = (player3Char) => {
+  return {
+    type: "init/player2Char",
+    player2Char,
+  };
+};
+
+export const player3Char = (player3Char) => {
+  return {
+    type: "init/player3Char",
+    player3Char,
+  };
+};
+
 export const onTime = (onTime) => {
   return {
     type: "init/onTime",
@@ -55,10 +76,39 @@ export const startNewGame = () => {
   };
 };
 
-export const makeMove = (move) => {
+export const makeMove = (index, player, char) => {
   return {
     type: "game/makeMove",
-    move,
+    payload: {
+      index,
+      player,
+      char,
+    },
+  };
+};
+
+export const announceWinner = (playerName) => {
+  return {
+    type: "game/announceWinner",
+    playerName,
+  };
+};
+
+export const incWin1 = () => {
+  return {
+    type: "game/incWin1",
+  };
+};
+
+export const incWin2 = () => {
+  return {
+    type: "game/incWin2",
+  };
+};
+
+export const incWin3 = () => {
+  return {
+    type: "game/incWin3",
   };
 };
 
@@ -71,5 +121,11 @@ export const returnToMainMenu = () => {
 export const timesUp = () => {
   return {
     type: "game/timesUp",
+  };
+};
+
+export const restart = () => {
+  return {
+    type: "restart",
   };
 };

@@ -4,9 +4,10 @@ import Timer from "./Timer";
 import Messages from "./Messages";
 import Board from "./Board";
 import CountdownTimer from "./CountdownTimer";
-import "./stylePlayGame.css";
 import Buttons from "./Buttons";
+import LeadingBoard from "./LeadingBoard";
 import { useSelector } from "react-redux";
+import "./stylePlayGame.css";
 
 const GamePage = () => {
   const currState = useSelector((state) => state);
@@ -26,6 +27,7 @@ const GamePage = () => {
         playersNum={currState.numOfPlayers}
         playersNames={playersArr}
       />
+      <LeadingBoard />
       {currState.onTime === false && <Timer />}
       {currState.onTime === true && (
         <CountdownTimer MinSec={currState.gameTime} />
@@ -33,7 +35,6 @@ const GamePage = () => {
       <Board />
       <Buttons />
       {/* <Messages moves={...moves} /> */}
-      {/*Update according to input*/}
     </div>
   );
 };

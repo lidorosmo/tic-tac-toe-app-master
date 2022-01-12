@@ -1,8 +1,7 @@
 .game-page {
   display: grid;
-  display: grid;
   grid-template-columns: 1fr;
-  gap: 0.75vw;
+  gap: 0.5vw;
   justify-items: center;
   align-items: center;
 }
@@ -21,6 +20,15 @@
 .player-names-display {
   font-family: "Rouge Script", cursive;
   font-size: 1.5vw;
+}
+
+.leading-board {
+  gap: 0;
+  font-size: 1vw;
+}
+
+.timer {
+  gap: 0;
 }
 
 .btn-restart {

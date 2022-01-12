@@ -1,5 +1,3 @@
-import './setUpPage.css'
-
 const HeaderWelcome = () => {
   return (
     <div className="header-welcome">

@@ -5,8 +5,12 @@ const PlayersNamesChoice = () => {
   const dispatch = useDispatch();
   const numOfPlayers = useSelector((state) => state.numOfPlayers);
 
+  const text1 = "Choose your name";
+  const text2 = "Choose your names";
+
   return (
     <div className="players-names-choice">
+      <label for="players-form">{numOfPlayers === 1 ? text1 : text2}</label>
       <form className="players-form">
         <input
           type="text"

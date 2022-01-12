@@ -81,6 +81,14 @@ body {
   margin: 0.3vw;
 }
 
+.char-choice {
+  justify-self: center;
+  display: grid;
+}
+.char-form {
+  justify-self: center;
+}
+
 .game-type-choice {
   display: grid;
   justify-self: center;

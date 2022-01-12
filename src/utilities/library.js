@@ -1,6 +1,10 @@
-export function checkWinner(board, n) {
-  // const board = store.getState().boardArr;
-  // const n = store.getState().numOfRows;
+import { incWin1, incWin2 } from "../redux/actions";
+import store from "../redux/store";
+
+export function checkWinner() {
+  const board = store.getState().boardArr;
+  const n = store.getState().numOfRows;
+  const player = store.getState().playerNumTurn;
 
   let winRows = checkWinRows(board, n);
   let winCols = checkWinCols(board, n);
@@ -9,7 +13,18 @@ export function checkWinner(board, n) {
 
   let win = winRows || winCols || winDiagonal || winOppositeDiagonal;
 
+  if (win) {
+  }
+
   return win ? "win" : checkTie(board, n) ? "tie" : "notDone";
+}
+
+function announceWinner(player) {
+  if (player === 1) {
+    store.dispatch(incWin1);
+  } else if (player === 2) {
+    store.dispatch(incWin2);
+  }
 }
 
 function checkWinRows(board, n) {

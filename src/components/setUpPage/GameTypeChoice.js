@@ -19,7 +19,6 @@ const GameTypeChoice = () => {
   const handleClick = () => {
     dispatch(onTime(false));
     dispatch(startNewGame());
-    console.log("clicked start game (im in handleClick)");
   };
 
   return (

@@ -15,7 +15,7 @@ const CharacterChoice = () => {
         <input
           type="text"
           placeholder="X"
-          // maxlength="1"
+          maxlength="2"
           onChange={(event) => {
             dispatch(player1Char(event.target.value));
           }}
@@ -24,7 +24,7 @@ const CharacterChoice = () => {
           <input
             type="text"
             placeholder="O"
-            // maxlength="1"
+            maxlength="2"
             className="second-player-name"
             onChange={(event) => {
               dispatch(player2Char(event.target.value));

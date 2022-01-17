@@ -17,7 +17,7 @@ const CountdownTimer = ({ MinSec }) => {
 
   const tick = () => {
     if (mins === 0 && secs === 0) {
-      const gamesStatus = checkWinner(state.boardArr, state.numOfRows);
+      const gamesStatus = checkWinner();
       if (gamesStatus === "win") {
         const name =
           state.playerNumTurn === 1
@@ -26,13 +26,13 @@ const CountdownTimer = ({ MinSec }) => {
             ? state.player2Name
             : state.player3Name;
         state.playerNumTurn === 1
-          ? dispatch(incWin1)
+          ? dispatch(incWin1())
           : state.playerNumTurn === 2
-          ? dispatch(incWin2)
-          : dispatch(incWin3);
+          ? dispatch(incWin2())
+          : dispatch(incWin3());
         dispatch(announceWinner(name));
       } else {
-        dispatch(timesUp);
+        dispatch(timesUp());
       }
     } else if (secs === 0) {
       setTime([mins - 1, 59]);

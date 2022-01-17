@@ -1,3 +1,5 @@
+import { numOfPlayers } from "./actions";
+
 const initialState = {
   numOfRows: 3,
   numOfPlayers: 2,
@@ -72,7 +74,6 @@ const reducer = function (state = initialState, action) {
         gameTime: action.gameTime,
       };
     case "init/startNewGame":
-      console.log("action.payload is:" + action.payload);
       return {
         ...state,
         pageDisplay: action.payload,
@@ -81,8 +82,12 @@ const reducer = function (state = initialState, action) {
       const boardArrCpy = [...state.boardArr];
       boardArrCpy[action.payload.index] = action.payload.char;
       const nextPlayer =
-        action.payload.player === 1 ? 2 : action.payload.player === 2 ? 3 : 1;
-      console.log(boardArrCpy[action.payload.index]);
+        action.payload.player === 1
+          ? 2
+          : action.payload.player === 2 && numOfPlayers === 3
+          ? 3
+          : 1;
+      // console.log("in reducer, the index to change is:" + action.payload.index);
       return {
         ...state,
         boardArr: boardArrCpy,

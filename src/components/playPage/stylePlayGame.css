@@ -44,7 +44,9 @@
 
 .tile-btn {
   margin: 0px;
-  padding: 2vw;
+  /* padding: 1vw; */
+  width: 5vw;
+  height: 5vw;
   background-color: transparent;
   /* background-color: #203A43; */
   border-color: #3a4464;

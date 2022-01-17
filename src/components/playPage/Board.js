@@ -1,11 +1,22 @@
 import React from "react";
 import Tile from "./Tile";
 import { useSelector } from "react-redux";
+import { numOfPlayers } from "../../redux/actions";
 
 const Board = () => {
   const boardArr = useSelector((state) => state.boardArr);
   const numOfRows = useSelector((state) => state.numOfRows);
+  //map returns an array
   const mappedTiles = boardArr.map((tiles, index) => <Tile index={index} />);
+  // const mappedTiles = () => {
+  //   let i = 0;
+  //   const newArr = [];
+  //   for (const e of boardArr) {
+  //     newArr.push(<Tile index={i} />);
+  //     ++i;
+  //   }
+  //   return newArr;
+  // };
   return (
     <div
       className="board"

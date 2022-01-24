@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { lighten, modularScale } from "polished";
 import {
   makeMove,
   incWin3,
@@ -11,17 +10,15 @@ import {
 } from "../../redux/actions";
 import { checkWinner } from "../../utilities/checkWinner";
 import makeComputerMove from "../../utilities/makeComputerMove";
-// import { updateMove } from "../../utilities/updateMove";
 
 const Tile = ({ index }) => {
-  // console.log("the index sent to Tile is: " + index);
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
   const charToDisplay = state.boardArr[index];
-  console.log("----------------------------");
-  if (index === 0) {
-    console.log(state.boardArr);
-  }
+  //  console.log("----------------------------");
+  // if (index === 0) {
+  //   console.log(state.boardArr);
+  // }
 
   const player = state.playerNumTurn;
   const char =
@@ -48,23 +45,19 @@ const Tile = ({ index }) => {
           : player === 2
           ? dispatch(incWin2())
           : dispatch(incWin3());
-        console.log("winning cond is:" + gameState + ", player:" + player);
         dispatch(announceWinner(name));
       } else if (gameState === "tie") {
         dispatch(timesUp());
+      } else {
+        //if played against computer- make computer's move
+        makeComputerMove();
       }
-
-      //if played against computer- make computer's move
-      makeComputerMove();
     }
   };
 
   function onEnter(e) {
     if (!state.boardArr[index]) {
       e.target.textContent = char;
-      // e.target.style.opacity = "0.4";
-      // e.target.style.background = "red";
-      // e.target.style.background = "rgba(250,250, 250, 0.5)";
       e.target.style.background = "rgba(55,75, 85, 0.5)";
     }
   }
@@ -72,11 +65,10 @@ const Tile = ({ index }) => {
     if (!state.boardArr[index]) {
       e.target.style.background = "#203a43";
       e.target.textContent = charToDisplay;
-      // e.target.style.opacity = "0.9";
     }
   }
   return (
-    <div className="tile" /*key={index}*/>
+    <div className="tile" key={index}>
       <button
         className="tile-btn"
         onMouseEnter={onEnter}

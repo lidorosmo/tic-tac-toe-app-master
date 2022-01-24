@@ -1,8 +1,9 @@
 import * as React from "react";
 import { PrimaryButton } from "@fluentui/react/lib/Button";
 import { Slider } from "@fluentui/react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { gameTime, onTime, startNewGame } from "../../redux/actions";
+import { checkChars } from "../../utilities/checkChars";
 
 const GameTypeChoice = () => {
   const dispatch = useDispatch();
@@ -12,13 +13,25 @@ const GameTypeChoice = () => {
     dispatch(gameTime(minSec));
   };
 
+  const alertSameChars = () => {
+    alert("Players characters are the same!\nChange at least one.");
+  };
+
   const handleClickWithTime = () => {
-    dispatch(onTime(true));
-    dispatch(startNewGame());
+    if (checkChars()) {
+      dispatch(startNewGame());
+      dispatch(onTime(true));
+    } else {
+      alertSameChars();
+    }
   };
   const handleClick = () => {
-    dispatch(onTime(false));
-    dispatch(startNewGame());
+    if (checkChars()) {
+      dispatch(onTime(false));
+      dispatch(startNewGame());
+    } else {
+      alertSameChars();
+    }
   };
 
   return (
@@ -29,7 +42,6 @@ const GameTypeChoice = () => {
         min={30}
         max={120}
         step={10}
-        // defaultValue={`${secs}`}
         defaultValue={60}
         showValue
         snapToStep

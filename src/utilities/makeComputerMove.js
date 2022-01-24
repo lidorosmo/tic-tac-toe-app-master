@@ -4,12 +4,10 @@ import { checkWinner } from "./checkWinner";
 
 function makeComputerMove() {
   const numOfPlayers = store.getState().numOfPlayers;
-  // const gameState = store.getState()
   if (numOfPlayers > 1) {
     return;
   }
   const board = store.getState().boardArr;
-  const n = store.getState().numOfRows;
   let index;
   for (let i = 0; i < board.length; i++) {
     index = randomIntFromInterval(0, board.length - 1);
@@ -17,11 +15,14 @@ function makeComputerMove() {
       break;
     }
   }
-  console.log("i found random index to be:" + index);
-  store.dispatch(makeMove(index, 2, "O"));
+  const charP1 = store.getState().player1Char;
+  if (charP1 === "O") {
+    store.dispatch(makeMove(index, 2, "X"));
+  } else {
+    store.dispatch(makeMove(index, 2, "O"));
+  }
   //Check if computer won
   const gameState = checkWinner();
-  console.log(gameState);
   if (gameState === "win") {
     store.dispatch(incWin2());
     store.dispatch(announceWinner("computer"));

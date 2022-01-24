@@ -1,5 +1,5 @@
 import "./setUpPage.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { numOfPlayers } from "../../redux/actions";
 
 const PlayersNumChoice = () => {

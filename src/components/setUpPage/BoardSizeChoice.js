@@ -45,8 +45,3 @@ const BoardSizeChoice = () => {
 };
 
 export default BoardSizeChoice;
-
-/*
-notes to self: spinbutton width should be 75
-//const styles: Partial<ISpinButtonStyles> = { spinButtonWrapper: { width: 75 } };
-*/

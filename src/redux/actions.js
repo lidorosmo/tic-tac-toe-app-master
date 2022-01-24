@@ -41,7 +41,7 @@ export const player1Char = (player1Char) => {
   };
 };
 
-export const player2Char = (player3Char) => {
+export const player2Char = (player2Char) => {
   return {
     type: "init/player2Char",
     player2Char,

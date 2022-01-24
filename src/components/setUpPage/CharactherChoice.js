@@ -34,8 +34,8 @@ const CharacterChoice = () => {
         {numOfPlayers === 3 && (
           <input
             type="text"
-            placeholder="&Delta;"
-            // maxlength="1"
+            placeholder="R"
+            maxlength="2"
             onChange={(event) => {
               dispatch(player3Char(event.target.value));
             }}

@@ -1,14 +1,12 @@
-import { numOfPlayers } from "./actions";
-
 const initialState = {
   numOfRows: 3,
   numOfPlayers: 2,
-  player1Name: "PlayerX",
-  player2Name: "PlayerO",
-  player3Name: "Player",
+  player1Name: "Player1",
+  player2Name: "Player2",
+  player3Name: "Player3",
   player1Char: "X",
   player2Char: "O",
-  player3Char: "&Delta;",
+  player3Char: "R",
   onTime: false,
   gameTime: { minutes: 1, seconds: 0 },
   boardArr: Array(9).fill(null),
@@ -34,11 +32,14 @@ const reducer = function (state = initialState, action) {
         numOfPlayers: action.numOfPlayers,
       };
     case "init/player1Name":
+      console.log("in reducer player1Name is: " + action.player1Name);
+
       return {
         ...state,
         player1Name: action.player1Name,
       };
     case "init/player2Name":
+      console.log("in reducer player2Name is: " + action.player2Name);
       return {
         ...state,
         player2Name: action.player2Name,
@@ -84,10 +85,9 @@ const reducer = function (state = initialState, action) {
       const nextPlayer =
         action.payload.player === 1
           ? 2
-          : action.payload.player === 2 && numOfPlayers === 3
+          : action.payload.player === 2 && state.numOfPlayers === 3
           ? 3
           : 1;
-      // console.log("in reducer, the index to change is:" + action.payload.index);
       return {
         ...state,
         boardArr: boardArrCpy,

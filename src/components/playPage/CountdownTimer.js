@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   timesUp,
   incWin1,
@@ -40,8 +40,6 @@ const CountdownTimer = ({ MinSec }) => {
       setTime([mins, secs - 1]);
     }
   };
-
-  // const reset = () => setTime([parseInt(minutes), parseInt(seconds)]);
 
   useEffect(() => {
     const timerId = setInterval(() => tick(), 1000);

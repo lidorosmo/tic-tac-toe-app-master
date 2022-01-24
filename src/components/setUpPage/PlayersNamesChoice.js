@@ -14,7 +14,7 @@ const PlayersNamesChoice = () => {
       <form className="players-form">
         <input
           type="text"
-          placeholder="PlayerX"
+          placeholder="Player1"
           onChange={(event) => {
             dispatch(player1Name(event.target.value));
           }}
@@ -22,7 +22,7 @@ const PlayersNamesChoice = () => {
         {numOfPlayers >= 2 && (
           <input
             type="text"
-            placeholder="PlayerO"
+            placeholder="Player2"
             className="second-player-name"
             onChange={(event) => {
               dispatch(player2Name(event.target.value));
@@ -32,7 +32,7 @@ const PlayersNamesChoice = () => {
         {numOfPlayers === 3 && (
           <input
             type="text"
-            placeholder="Player&Delta;"
+            placeholder="Player3"
             onChange={(event) => {
               dispatch(player3Name(event.target.value));
             }}
